@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css" >
+    
+    <title>KimJoonseo's Profile</title>
+  </head>
+  <body>
+    
+    <!-- As a heading -->
+    <nav id="navbar-example2" class="navbar shadow-lg fixed-bottom navbar-light bg-light px-3">
+      <a class="navbar-brand" href="#"><strong>KimJoonseo's Profile</strong></a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#Information">Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Default">Profile Default</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Schedule">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Playlists">Playlists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Top</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+      <div class="wrapper bg-gray bg-gradient text-dark" id="Information">
+        <h3>Information</h3>
+          <h5>Name: <strong class="user-select-all text-info">Joonseo Kim</strong></h5>
+          <h5>Email:</h5> <h5 class="user-select-all text-info"> joonseo2012@gmail.com</h5>
+          <h5>Phone Number:</h5> <h5 class="user-select-all text-info"> 010-1234-4321</h5>
+          <h5>Interests: <span class="text-secondary">Listening pop-song, Watching youtube, Playing games with my friends</span></h5>
+          <h5>Links: </h5>
+            <ul margin="auto">
+              <il><p><a href="https://github.com/joonseo21/OSS2022">Github: OpenSourceSoftware</a></p></il>
+              <il><p><a href="https://www.acmicpc.net/user/joonseo2012">백준 온라인</a></p></il>
+              <il><p><a href="https://www.youtube.com/channel/UCSTH5tGUzWRryl4h23zrJUQ">Youtube Channel</a></p></il>
+            </ul>
+      </div>
+      
+      <div class="wrapper" id="Default">
+        <figure class="figure">
+          <h3>My Profile Default</h3>
+          <img width="360px" src="photo.png" class="figure-img img-fluid rounded" alt="...">
+          <figcaption class="figure-caption">cute cat<br></figcaption>
+        </figure>
+      </div>
+
+      <div class="wrapper-scheduler" id="Schedule" >
+        <h3>Schedule</h3>
+        <div class="container mb-3"> 
+          <div class="d-flex justify-content-evenly">
+            <label for="task-input" class="form-label">Task</label>
+          </div>
+          <div class="d-flex justify-content-evenly">
+            <input type="text" class="form-control" id="task-input" placeholder="Enter a task here - Simple task">
+            <input type="text" class="form-control" id="task-day" placeholder="Enter a day of task - Monday">
+          </div>
+          <div class="d-flex justify-content-evenly">
+            <button type="button" class="btn btn-primary" id="add">Add</button>  
+            <button type="button" class="btn btn-danger" id="delete">Delete</button>  
+          </div>
+          
+
+          <table class="table table-dark table-striped" id="schedule-table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tasks</th>
+                <th scope="col">Day</th>
+              </tr>
+            </thead>
+            <tbody id="my-tbody">
+              <tr>
+                <td scope="row">1</td>
+                <td>OSS_final_project_meeting</td>
+                <td>Sunday</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="wrapper" id="Playlists">
+        <h3>Playlists</h3>
+        <div class="container"> <div class="mb-3">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/KGSBErRBg0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <h3>Bootstrap links</h3>
+      <div class="container mb-3">
+        <a href="https://getbootstrap.com/docs/5.0/components/scrollspy/">scrollspy<br></a>
+        <a href="https://getbootstrap.com/docs/5.0/forms/form-control/">Form-control<br></a>
+        <a href="https://getbootstrap.com/docs/5.0/components/buttons/">button<br></a>
+        <a href="https://getbootstrap.com/docs/5.1/content/tables/">Table<br></a>
+      </div>
+      <h3>Bootstrap utilities links</h3>
+      <div class="container mb-3">
+        <a href="https://getbootstrap.com/docs/5.0/utilities/interactions/">text selection<br></a>
+        <a href="https://getbootstrap.com/docs/5.0/utilities/flex/">flex<br></a>
+        <a href="https://getbootstrap.com/docs/5.0/utilities/colors/">colors<br></a>
+      </div>
+    </div>
+    
+    <script>
+      let buttonadd = document.querySelector("#add");
+      buttonadd.addEventListener("click", () => { 
+        
+        // 1. Read the text in #task-input. 
+        let input_task = document.querySelector("#task-input"); 
+        let text_task = input_task.value;
+        let input_day = document.querySelector("#task-day"); 
+        let text_day = input_day.value;
+        if (!text_task.length) return;
+        if (!text_day.length) return;
+        
+        // 2. Append the text to #todo-list.
+        let newTask = document.createElement("div");
+        newTask.classList.add("task", "bg-light", "p-1", "rounded-2", "ps-2");
+        newTask.textContent = text_task;
+
+        let my_tbody = document.getElementById('my-tbody');
+        let num = my_tbody.getElementsByTagName("tr");
+        let row = my_tbody.insertRow( my_tbody.rows.length ); // 하단에 추가
+        let cell0 = row.insertCell(0);
+        let cell1 = row.insertCell(1);
+        let cell2 = row.insertCell(2);
+        cell0.innerHTML = num.length;
+        cell1.innerHTML = text_task;
+        cell2.innerHTML = text_day;
+        
+
+        // 3. Clear #task-input.
+        input_task.value = "";
+        input_day.value = "";
+      })
+
+      let buttondel = document.querySelector("#delete");
+      buttondel.addEventListener("click",()=>{
+        let my_tbody = document.getElementById('my-tbody');
+        let num = my_tbody.getElementsByTagName("tr");
+        if(num.length < 1) return;
+        my_tbody.deleteRow(num.length-1);
+      })
+    </script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
